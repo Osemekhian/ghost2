@@ -16,4 +16,3 @@ dash-core-components
 random2
 DateTime
 requires.io
-uvicorn
