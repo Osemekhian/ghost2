@@ -138,9 +138,9 @@ def preprocess(df, target, features):
 
 #===========================================
 
-my_app= dash.Dash(__name__,external_stylesheets=[dbc.themes.MORPH]) #dbc.themes.MORPH | dbc.themes.SOLAR
-server = my_app.server
-my_app.layout= html.Div([
+app= dash.Dash(__name__,external_stylesheets=[dbc.themes.MORPH]) #dbc.themes.MORPH | dbc.themes.SOLAR
+server = app.server
+app.layout= html.Div([
     html.P(""),
     html.H1("Data Analyzer"),
     html.P("by: Osemekhian Solomon Ehilen"),html.Br(),
@@ -187,7 +187,7 @@ my_app.layout= html.Div([
     dcc.Markdown("Bravelion | 2025 | Contact for Analysis: [email](mailto:oseme781227@gmail.com) ")
 ], style=style)
 
-@my_app.callback([Output('out1','children'),
+@app.callback([Output('out1','children'),
                         Output('outy','children'),
                         Output('out2','children'),
                         Output('store1', 'data'),
@@ -265,7 +265,7 @@ def link(text, rad, button, drpval):
     except:
         return ""
 
-@my_app.callback(Output('uni','children'),
+@app.callback(Output('uni','children'),
                  [Input('store1','data'),
                   Input('unidrp','value'),
                   Input('radio','value'),
@@ -284,7 +284,7 @@ def chart(data, column, rad, button):
     except:
         return ""
 
-@my_app.callback(Output('Bi','children'),
+@app.callback(Output('Bi','children'),
                  [Input('store1','data'),
                   Input('bidrp','value'),
                   Input('radio', 'value'),
@@ -307,7 +307,7 @@ def charts(data, columns, rad, button):
     except:
         return ""
 #======================================================================================
-@my_app.callback(Output('modelout','children'),
+@app.callback(Output('modelout','children'),
                  [Input('store1','data'),
                   Input('modeldrp','value'),
                   Input('moddrp', 'value'),
@@ -640,7 +640,7 @@ def out1( data, model_type, target, features, btn_analyze):
         return ""
 #======================================================================================
 
-@my_app.callback(Output('download-data-cleaned','data'),
+@app.callback(Output('download-data-cleaned','data'),
                  [Input('radio','value'),
                   Input('store1','data'),
                   Input('btn_csv','n_clicks')], prevent_initial_call=True)
@@ -652,7 +652,7 @@ def out(value, data, n_clicks):
 
 
 if __name__ == '__main__':
-    my_app.run_server(
+    app.run_server(
         debug = True,
         host= '0.0.0.0',
         port= 8080
