@@ -300,10 +300,10 @@ def charts(data, columns, rad, button):
                 fig2 = px.box(df, x=columns[0], y=columns[-1], title=f"Box Plot for {columns[0]} & {columns[-1]}") #points='all',
                 fig3 = px.scatter(df, x=columns[0], y=columns[-1], title=f"Scatter Plot for {columns[0]} & {columns[-1]}")
                 fig4= px.imshow(cor, text_auto=True, title=f"Heatmap Correlation Plot",aspect="auto")
-                fig5 = px.pie(df, values=columns[0], names=columns[-1], hole=0.1, title=f"Pie Plot for {columns[0]} & {columns[-1]}")
+                #fig5 = px.pie(df, values=columns[0], names=columns[-1], hole=0.1, title=f"Pie Plot for {columns[0]} & {columns[-1]}")
                 fig = px.bar(df, x=columns[0], y=columns[-1], title=f"Bar Plot for {columns[0]} & {columns[-1]}")
 
-                return html.Div([dcc.Graph(figure=fig2),dcc.Graph(figure=fig3),dcc.Graph(figure=fig4),dcc.Graph(figure=fig),dcc.Graph(figure=fig5)])
+                return html.Div([dcc.Graph(figure=fig2),dcc.Graph(figure=fig3),dcc.Graph(figure=fig4),dcc.Graph(figure=fig)])
     except:
         return ""
 #======================================================================================
@@ -359,7 +359,7 @@ def out1( data, model_type, target, features, btn_analyze):
                     random_search = RandomizedSearchCV(
                         estimator=model,
                         param_distributions=param_dist,
-                        n_iter=20,  # Number of parameter settings to sample
+                        n_iter=5,  # Number of parameter settings to sample
                         scoring='accuracy',  # Metric to evaluate
                         cv=5,  # Number of cross-validation folds
                         random_state=42,
@@ -384,7 +384,7 @@ def out1( data, model_type, target, features, btn_analyze):
                     random_search = RandomizedSearchCV(
                         estimator=model,
                         param_distributions=param_dist,
-                        n_iter=20,  # Number of parameter settings to sample
+                        n_iter=5,  # Number of parameter settings to sample
                         scoring='accuracy',  # Metric to evaluate
                         cv=5,  # Number of cross-validation folds
                         random_state=42,
@@ -463,7 +463,7 @@ def out1( data, model_type, target, features, btn_analyze):
                     random_search = RandomizedSearchCV(
                         estimator=model,
                         param_distributions=param_dist,
-                        n_iter=20,  # Number of parameter settings to sample
+                        n_iter=5,  # Number of parameter settings to sample
                         scoring='neg_mean_squared_error',  # Metric to evaluate (negative MSE for regression)
                         cv=5,  # Number of cross-validation folds
                         random_state=42,
@@ -485,7 +485,7 @@ def out1( data, model_type, target, features, btn_analyze):
                     random_search = RandomizedSearchCV(
                         estimator=model,
                         param_distributions=param_dist,
-                        n_iter=20,  # Number of parameter settings to sample
+                        n_iter=5,  # Number of parameter settings to sample
                         scoring='neg_mean_squared_error',  # Metric to evaluate (negative MSE for regression)
                         cv=5,  # Number of cross-validation folds
                         random_state=42,
