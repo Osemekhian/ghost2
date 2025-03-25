@@ -291,6 +291,7 @@ def chart(data, column, rad, button):
                   Input('outlier', 'value')])
 def charts(data, columns, rad, button):
     try:
+        button += 1
         if button:
             # pass
             if rad:
