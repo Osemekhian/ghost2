@@ -291,7 +291,7 @@ def chart(data, column, rad, button):
                   Input('outlier', 'value')])
 def charts(data, columns, rad, button):
     try:
-        button += 1
+        button = True
         if button:
             # pass
             if rad:
@@ -360,7 +360,7 @@ def out1( data, model_type, target, features, btn_analyze):
                     random_search = RandomizedSearchCV(
                         estimator=model,
                         param_distributions=param_dist,
-                        n_iter=5,  # Number of parameter settings to sample
+                        n_iter=2,  # Number of parameter settings to sample
                         scoring='accuracy',  # Metric to evaluate
                         cv=5,  # Number of cross-validation folds
                         random_state=42,
@@ -385,7 +385,7 @@ def out1( data, model_type, target, features, btn_analyze):
                     random_search = RandomizedSearchCV(
                         estimator=model,
                         param_distributions=param_dist,
-                        n_iter=5,  # Number of parameter settings to sample
+                        n_iter=2,  # Number of parameter settings to sample
                         scoring='accuracy',  # Metric to evaluate
                         cv=5,  # Number of cross-validation folds
                         random_state=42,
@@ -464,7 +464,7 @@ def out1( data, model_type, target, features, btn_analyze):
                     random_search = RandomizedSearchCV(
                         estimator=model,
                         param_distributions=param_dist,
-                        n_iter=5,  # Number of parameter settings to sample
+                        n_iter=2,  # Number of parameter settings to sample
                         scoring='neg_mean_squared_error',  # Metric to evaluate (negative MSE for regression)
                         cv=5,  # Number of cross-validation folds
                         random_state=42,
@@ -486,7 +486,7 @@ def out1( data, model_type, target, features, btn_analyze):
                     random_search = RandomizedSearchCV(
                         estimator=model,
                         param_distributions=param_dist,
-                        n_iter=5,  # Number of parameter settings to sample
+                        n_iter=2,  # Number of parameter settings to sample
                         scoring='neg_mean_squared_error',  # Metric to evaluate (negative MSE for regression)
                         cv=5,  # Number of cross-validation folds
                         random_state=42,
