@@ -389,7 +389,7 @@ def out1( data, model_type, target, features, btn_analyze):
                         scoring='accuracy',  # Metric to evaluate
                         cv=5,  # Number of cross-validation folds
                         random_state=42,
-                        n_jobs=-1,  # Use all available CPU cores
+                        n_jobs=1,  # Use all available CPU cores
                     )
                 elif model_type == 'SVM Classification':
                     model= SVC(random_state=random_state)
@@ -490,7 +490,7 @@ def out1( data, model_type, target, features, btn_analyze):
                         scoring='neg_mean_squared_error',  # Metric to evaluate (negative MSE for regression)
                         cv=5,  # Number of cross-validation folds
                         random_state=42,
-                        n_jobs=-1,  # Use all available CPU cores
+                        n_jobs=1,  # Use all available CPU cores
                     )
                 elif model_type == 'SVM Regression':
                     model= SVR()
